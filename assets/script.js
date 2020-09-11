@@ -54,3 +54,64 @@ function updateCountdown() {
     }
 }
 
+//----------------------------------------------------------------------------
+// Questions
+//----------------------------------------------------------------------------
+
+var questionOne = "Commonly used data types do NOT include:"
+var questionOneAnswerOne = "1.  Strings"
+var questionOneAnswerTwo = "2.  Booleens"
+var questionOneAnswerThree = "3.  Alerts"
+var questionOneAnswerFour = "4.  Number"
+
+
+var questionTwo = "Conditions in an if/else statement are enclosed with a _______."
+var questionTwoAnswerOne = "1.  Quotes" 
+var questionTwoAnswerTwo = "2.  Curly brackets"
+var questionTwoAnswerThree = "3.  Parenthises"
+var questionTwoAnswerFour = "4.  Square brackets"
+
+var questionThree = "Array in Java Script can be used to store_______."
+var questionThreeAnswerOne = "1.  Numbers and strings"
+var questionThreeAnswerTwo = "2.  Other arrays"
+var questionThreeAnswerThree = "3.  Booleens"
+var questionThreeAnswerFour = "4.  All of the above"
+
+var questionFour = "String values must be enclosed with a __________ when being assigned to variables."
+var questionFourAnswerOne = "1.  Commas"
+var questionFourAnswerTwo = "2.  Curly brackets"
+var questionFourAnswerThree = "3.  Quotes"
+var questionFourAnswerFour = "4.  Parenthises"
+
+var questionFive = "A very useful tool used during development and debugging for printing content to the debugger:"
+var questionFiveAnswerOne = "1.  Java Script"
+var questionFiveAnswerTwo = "2.  Terminal / Bash"
+var questionFiveAnswerThree = "3.  For loops"
+var questionFiveAnswerFour = "4.  Console log"
+
+//Variable to hold score
+
+var myScore = 0
+
+document.querySelector("#answer-1").textContent = questionThreeAnswerTwo;
+// document.querySelector("#answer-2").textContent = answer-One;
+// document.querySelector("#answer-3").textContent = answer-One;
+// document.querySelector("#answer-4").textContent = answer-One;
+// document.querySelector("#answer-5").textContent = answer-One;
+
+function  showQuestionOne() {
+
+
+
+}
+
+
+
+var questionOneEl = document.querySelector("#question").textContent = questionOne;
+var questionTwoEl = document.querySelector("#question").textContent = questionTwo;
+var questionThreeEl = document.querySelector("#question").textContent = questionThree;
+var questionFourEl = document.querySelector("#question").textContent = questionFour;
+var questionFiveEl = document.querySelector("#question").textContent = questionFive;
+
+
+

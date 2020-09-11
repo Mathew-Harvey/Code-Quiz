@@ -5,34 +5,17 @@
 }
 
 h1 {
-    align-content: center;
-    position: absolute;
-    display: flex;
     text-align: center;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0;
-    position: absolute;
-    flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 30px;
     max-width: 700px;
     position: absolute;
     left: 50%;
     top: 15%;
     transform: translate(-50%, -50%);
- 
-
-}
+ }
 
 #countdown { 
     background-color: white;
     display: inline-flex;
-    position: top;
     align-items: center;
     justify-content: center;
     font-size: 35px;
@@ -47,19 +30,10 @@ h1 {
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	padding: 30px;
 	max-width: 500px;
     text-align: center;
     justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -100,7 +74,10 @@ h1 {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#question {
 
+    text-emphasis: wrap;;
+}
 
 
 
