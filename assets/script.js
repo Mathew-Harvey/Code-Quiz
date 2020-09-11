@@ -7,40 +7,7 @@
 
 
 
-//----------------------------------------------------------------------------
-// Questions
-//----------------------------------------------------------------------------
 
-var questionOne = "Commonly used data types do NOT include:"
-var questionOneAnswerOne = "Strings"
-var questionOneAnswerTwo = "Booleens"
-var questionOneAnswerThree = "Alerts"
-var questionOneAnswerFour = "Number"
-
-
-var questionTwo = "Conditions in an if/else statement are enclosed with a _______."
-var questionTwoAnswerOne = "Quotes"
-var questionTwoAnswerTwo = "Curly brackets"
-var questionTwoAnswerThree = "Parenthises"
-var questionTwoAnswerFour = "Square brackets"
-
-var questionThree = "Array in Java Script can be used to store_______."
-var questionThreeAnswerOne = "Numbers and strings"
-var questionThreeAnswerTwo = "Other arrays"
-var questionThreeAnswerThree = "Booleens"
-var questionThreeAnswerFour = "All of the above"
-
-var questionFour = "String values must be enclosed with a __________ when being assigned to variables."
-var questionFourAnswerOne = "Commas"
-var questionFourAnswerTwo = "Curly brackets"
-var questionFourAnswerThree = "Quotes"
-var questionFourAnswerFour = "Parenthises"
-
-var questionFive = "A very useful tool used during development and debugging for printing content to the debugger:"
-var questionFiveAnswerOne = "Java Script"
-var questionFiveAnswerTwo = "Terminal / Bash"
-var questionFiveAnswerThree = "For loops"
-var questionFiveAnswerFour = "Console log"
 
 //----------------------------------------------------------------------------
 // Countdown timer
@@ -117,6 +84,45 @@ function showQuestion(question) {
 function selectAnswer() {
 
 }
+
+//----------------------------------------------------------------------------
+// Questions
+//----------------------------------------------------------------------------
+
+var questionOne = "Commonly used data types do NOT include:"
+var questionOneAnswerOne = "Strings"
+var questionOneAnswerTwo = "Booleens"
+var questionOneAnswerThree = "Alerts"
+var questionOneAnswerFour = "Number"
+
+
+var questionTwo = "Conditions in an if/else statement are enclosed with a _______."
+var questionTwoAnswerOne = "Quotes"
+var questionTwoAnswerTwo = "Curly brackets"
+var questionTwoAnswerThree = "Parenthises"
+var questionTwoAnswerFour = "Square brackets"
+
+var questionThree = "Array in Java Script can be used to store_______."
+var questionThreeAnswerOne = "Numbers and strings"
+var questionThreeAnswerTwo = "Other arrays"
+var questionThreeAnswerThree = "Booleens"
+var questionThreeAnswerFour = "All of the above"
+
+var questionFour = "String values must be enclosed with a __________ when being assigned to variables."
+var questionFourAnswerOne = "Commas"
+var questionFourAnswerTwo = "Curly brackets"
+var questionFourAnswerThree = "Quotes"
+var questionFourAnswerFour = "Parenthises"
+
+var questionFive = "A very useful tool used during development and debugging for printing content to the debugger:"
+var questionFiveAnswerOne = "Java Script"
+var questionFiveAnswerTwo = "Terminal / Bash"
+var questionFiveAnswerThree = "For loops"
+var questionFiveAnswerFour = "Console log"
+
+//----------------------------------------------------------------------------
+// Question array
+//----------------------------------------------------------------------------
 
 var question = [
     {
