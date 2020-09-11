@@ -13,6 +13,26 @@ h1 {
     transform: translate(-50%, -50%);
  }
 
+#startbtn {
+
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	flex: 1;
+	padding: 20px;
+    margin: 10px 5px;
+    list-style-type: none;
+    border-radius: 8%;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    
+}
+
 #countdown { 
     background-color: white;
     display: inline-flex;
@@ -31,7 +51,6 @@ h1 {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
 	padding: 30px;
-	max-width: 500px;
     text-align: center;
     justify-content: center;
     position: absolute;
@@ -80,7 +99,27 @@ h1 {
 }
 
 
-
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .btn {
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+  }
+  
+  .btn:hover {
+    border-color: black;
+  }
+  
 
 
 
