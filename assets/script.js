@@ -5,86 +5,6 @@
 //create a timer that counts down but also jumps down 5 second on wrong answer
 
 
-
-
-
-
-//----------------------------------------------------------------------------
-// Countdown timer
-//----------------------------------------------------------------------------
-
-var startingMinutes = 1;
-let time = startingMinutes * 75;
-
-var countDownEl = document.getElementById("countdown")
-
-setInterval(updateCountdown, 1000);
-
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    countDownEl.innerHTML = `${minutes}: ${seconds}`;
-    time--;
-
-    if (--time < 0) {
-        time = 0;
-    }
-}
-
-
-//Variable to hold score
-
-var myScore = 0
-
-document.querySelector("#btn1").textContent = questionThreeAnswerTwo;
-
-function showQuestionOne() {
-
-}
-
-
-
-var startButton = document.getElementById("startbtn")
-var questionContainerEl = document.getElementById("questionbox")
-var questionEl = document.getElementById("question")
-var answerBtnsEl = document.getElementById("answer-buttons") //fix this with html
-
-startButton.addEventListener("click", startGame)
-
-var orderedQuestions, currentQuestionIndex
-
-
-function startGame() {
-    console.log("started")
-    startButton.classList.add("hide")
-    orderedQuestions = question.sort()
-    currentQuestionIndex = 0
-    questionContainerEl.classList.remove('hide')
-
-    setNextQuestion()
-
-
-
-
-
-}
-
-function setNextQuestion() {
-    showQuestion[0]
-
-}
-
-
-function showQuestion(question) {
-    questionEl.innerText = question.question
-}
-
-
-function selectAnswer() {
-
-}
-
 //----------------------------------------------------------------------------
 // Questions
 //----------------------------------------------------------------------------
@@ -172,3 +92,82 @@ var question = [
     },
 ]
 console.log(question)
+
+
+//----------------------------------------------------------------------------
+// start quiz function
+//----------------------------------------------------------------------------
+
+var startBtn = document.querySelector("#startbtn")
+var questionBox = document.querySelector("#panel-container")
+document.getElementById("panel-container").style.visibility = "hidden";
+
+function startGame() {
+    console.log("started")
+    document.getElementById("startbtn").style.visibility = "hidden";
+    document.getElementById("panel-container").style.visibility = "visible";
+    orderedQuestions = question.sort()
+    currentQuestionIndex = 0
+    questionContainerEl.classList.remove('hide')
+    var fiveMinutes = 60 * 1.25,
+        display = document.querySelector('#countdown');
+    startTimer(fiveMinutes, display);
+    setNextQuestion()
+}
+
+//----------------------------------------------------------------------------
+// Countdown timer
+//----------------------------------------------------------------------------
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = 0;
+        }
+    }, 1000);
+}
+
+
+
+//----------------------------------------------------------------------------
+// Working code here... bit crap
+//----------------------------------------------------------------------------
+
+
+
+//Variable to hold score
+
+var myScore = 0
+
+document.querySelector("#btn1").textContent = questionThreeAnswerTwo;
+
+
+document.querySelector("#question").textContent = questionOne
+
+
+function showQuestionOne() {
+    
+
+}
+
+
+
+var startButton = document.getElementById("startbtn")
+var questionContainerEl = document.getElementById("questionbox")
+var questionEl = document.getElementById("question")
+var answerBtnsEl = document.getElementById("answer-buttons") //fix this with html
+
+startButton.addEventListener("click", startGame)
+
+var orderedQuestions, currentQuestionIndex
+
+
