@@ -1,9 +1,13 @@
 //----------------------------------------------------------------------------
 // Countdown timer
 //----------------------------------------------------------------------------
+// var timerMaster = startTimer(duration, display)
+// console.log(timerMaster)
 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
+var timer = 0;
+
+function startTimer(display) {
+
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -33,9 +37,9 @@ function startGameButton() {
     document.getElementById("panel-container").style.visibility = "visible";
 
 
-    var oneMinuteFifteen = 60 * 1.25,
-        display = document.querySelector('#countdown');
-    startTimer(oneMinuteFifteen, display);
+    timer = 60 * 1.25
+    var display = document.querySelector('#countdown');
+    startTimer(display);
 
 }
 var startButton = document.getElementById("startbtn")
