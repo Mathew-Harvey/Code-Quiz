@@ -1,120 +1,3 @@
-//To Do
-//Write html with bootstrap 
-//style html 
-//create a variable to hold user score and initials
-//create a timer that counts down but also jumps down 5 second on wrong answer
-
-
-//----------------------------------------------------------------------------
-// Questions
-//----------------------------------------------------------------------------
-
-var questionOne = "Commonly used data types do NOT include:"
-var questionOneAnswerOne = "Strings"
-var questionOneAnswerTwo = "Booleens"
-var questionOneAnswerThree = "Alerts"
-var questionOneAnswerFour = "Number"
-
-
-var questionTwo = "Conditions in an if/else statement are enclosed with a _______."
-var questionTwoAnswerOne = "Quotes"
-var questionTwoAnswerTwo = "Curly brackets"
-var questionTwoAnswerThree = "Parenthises"
-var questionTwoAnswerFour = "Square brackets"
-
-var questionThree = "Array in Java Script can be used to store_______."
-var questionThreeAnswerOne = "Numbers and strings"
-var questionThreeAnswerTwo = "Other arrays"
-var questionThreeAnswerThree = "Booleens"
-var questionThreeAnswerFour = "All of the above"
-
-var questionFour = "String values must be enclosed with a __________ when being assigned to variables."
-var questionFourAnswerOne = "Commas"
-var questionFourAnswerTwo = "Curly brackets"
-var questionFourAnswerThree = "Quotes"
-var questionFourAnswerFour = "Parenthises"
-
-var questionFive = "A very useful tool used during development and debugging for printing content to the debugger:"
-var questionFiveAnswerOne = "Java Script"
-var questionFiveAnswerTwo = "Terminal / Bash"
-var questionFiveAnswerThree = "For loops"
-var questionFiveAnswerFour = "Console log"
-
-//----------------------------------------------------------------------------
-// Question array
-//----------------------------------------------------------------------------
-
-var question = [
-    {
-        question: questionOne,
-        answers: [
-            { questionOneAnswerOne, correct: false },
-            { questionOneAnswerTwo, correct: false },
-            { questionOneAnswerThree, correct: true },
-            { questionOneAnswerFour, correct: false },
-        ]
-    },
-    {
-        question: questionTwo,
-        answers: [
-            { questionTwoAnswerOne, correct: false },
-            { questionTwoAnswerTwo, correct: true },
-            { questionTwoAnswerThree, correct: false },
-            { questionTwoAnswerFour, correct: false },
-        ]
-    },
-    {
-        question: questionThree,
-        answers: [
-            { questionThreeAnswerOne, correct: false },
-            { questionThreeAnswerTwo, correct: false },
-            { questionThreeAnswerThree, correct: false },
-            { questionThreeAnswerFour, correct: true },
-        ]
-    },
-    {
-        question: questionFour,
-        answers: [
-            { questionFourAnswerOne, correct: false },
-            { questionFourAnswerTwo, correct: false },
-            { questionFourAnswerThree, correct: true },
-            { questionFourAnswerFour, correct: false },
-        ]
-    },
-    {
-        question: questionFive,
-        answers: [
-            { questionFiveAnswerOne, correct: false },
-            { questionFiveAnswerTwo, correct: false },
-            { questionFiveAnswerThree, correct: false },
-            { questionFiveAnswerFour, correct: true },
-        ]
-    },
-]
-console.log(question)
-
-
-//----------------------------------------------------------------------------
-// start quiz function
-//----------------------------------------------------------------------------
-
-var startBtn = document.querySelector("#startbtn")
-var questionBox = document.querySelector("#panel-container")
-document.getElementById("panel-container").style.visibility = "hidden";
-
-function startGame() {
-    console.log("started")
-    document.getElementById("startbtn").style.visibility = "hidden";
-    document.getElementById("panel-container").style.visibility = "visible";
-    orderedQuestions = question.sort()
-    currentQuestionIndex = 0
-    questionContainerEl.classList.remove('hide')
-    var fiveMinutes = 60 * 1.25,
-        display = document.querySelector('#countdown');
-    startTimer(fiveMinutes, display);
-    setNextQuestion()
-}
-
 //----------------------------------------------------------------------------
 // Countdown timer
 //----------------------------------------------------------------------------
@@ -136,38 +19,150 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-
-
 //----------------------------------------------------------------------------
-// Working code here... bit crap
+// Start quiz function
 //----------------------------------------------------------------------------
 
+var startBtn = document.querySelector("#startbtn")
+var questionBox = document.querySelector("#panel-container")
+document.getElementById("panel-container").style.visibility = "hidden";
+
+function startGameButton() {
+    console.log("started")
+    document.getElementById("startbtn").style.visibility = "hidden";
+    document.getElementById("panel-container").style.visibility = "visible";
 
 
-//Variable to hold score
+    var oneMinuteFifteen = 60 * 1.25,
+        display = document.querySelector('#countdown');
+    startTimer(oneMinuteFifteen, display);
 
-var myScore = 0
+}
+var startButton = document.getElementById("startbtn")
+startButton.addEventListener("click", startGameButton)
 
-document.querySelector("#btn1").textContent = questionThreeAnswerTwo;
+//----------------------------------------------------------------------------
+//Variables and questions and answer array 
+//----------------------------------------------------------------------------
 
 
-document.querySelector("#question").textContent = questionOne
+const question = document.getElementById("question");
+const choices = Array.from(document.getElementsByClassName("choice-text"));
+const scoreText = document.getElementById("score");
+
+let currentQuestion = {};
+let acceptingAnswers = true;
+let score = 0;
+let questionCounter = 0;
+let availableQuestions = [];
+
+let questions = [
+    {
+        question: "Commonly used data types do NOT include:",
+        choice1: "Strings",
+        choice2: "Booleens",
+        choice3: "Alerts",
+        choice4: "Number",
+        answer: 3
+    },
+    {
+        question: "Conditions in an if/else statement are enclosed with a _______.",
+        choice1: "Quotes",
+        choice2: "Curly brackets",
+        choice3: "Parenthises",
+        choice4: "Square brackets",
+        answer: 2
+
+    },
+    {
+        question: "Array in Java Script can be used to store_______.",
+        choice1: "Numbers and strings",
+        choice2: "Other arrays",
+        choice3: "Booleens",
+        choice4: "All of the above",
+        answer: 4
+    },
+    {
+        question: "String values must be enclosed with a __________ when being assigned to variables.",
+        choice1: "Commas",
+        choice2: "Curly brackets",
+        choice3: "Quotes",
+        choice4: "Parenthises",
+        answer: 1
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger:",
+        choice1: "Java Script",
+        choice2: "Terminal / Bash",
+        choice3: "For loops",
+        choice4: "Console log",
+        answer: 4
+    }
+]
+
+//----------------------------------------------------------------------------
+// Game mechanics
+//----------------------------------------------------------------------------
+
+const CORRECT_BONUS = 1
+const MAX_QUESTIONS = 5
+
+function startGame() {
+    questionCounter = 0
+    score = 0
+    availableQuestions = [...questions];
+    console.log(availableQuestions);
+    getNewQuestion();
+};
 
 
-function showQuestionOne() {
-    
+function getNewQuestion() {
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        //go to end page
+        return window.location.assign("./assets/end.html");
+    }
+    questionCounter++;
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
+    question.innerText = currentQuestion.question;
+
+    choices.forEach(function (choice) {
+        const number = choice.dataset["number"];
+        choice.innerText = currentQuestion["choice" + number];
+    });
+
+    availableQuestions.splice(questionIndex, 1);
+
+    acceptingAnswers = true;
+};
+
+
+
+choices.forEach(function (choice) {
+    choice.addEventListener("click", e => {
+        if (!acceptingAnswers)
+            return;
+        acceptingAnswers = false;
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset["number"];
+
+        if (selectedAnswer == currentQuestion.answer === true) {
+            incrementScore();
+        }
+        // else if (selectedAnswer != currentQuestion.answer != true) {
+        //     HERE IS WHERE I NEED TO LINK TO TAKING TIME OFF TIMER
+
+        // }
+
+        console.log(selectedAnswer == currentQuestion.answer);
+        getNewQuestion();
+    });
+});
+
+function incrementScore() {
+    score += 1;
+    scoreText.innerText = score;
 
 }
 
-
-
-var startButton = document.getElementById("startbtn")
-var questionContainerEl = document.getElementById("questionbox")
-var questionEl = document.getElementById("question")
-var answerBtnsEl = document.getElementById("answer-buttons") //fix this with html
-
-startButton.addEventListener("click", startGame)
-
-var orderedQuestions, currentQuestionIndex
-
-
+startGame();
