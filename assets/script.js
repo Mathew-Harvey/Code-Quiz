@@ -9,18 +9,25 @@ var timer = 0;
 function startTimer(display) {
 
     setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+        var minutes = parseInt(timer / 60, 10);
+        var seconds = parseInt(timer % 60, 10);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
-
+  console.log(seconds)  
         if (--timer < 0) {
             timer = 0;
         }
     }, 1000);
+
+}
+
+function decrementTime(seconds) {
+    seconds = parseInt(seconds - 10); //NOT WORKING 
+   
+    
 }
 
 //----------------------------------------------------------------------------
@@ -35,32 +42,32 @@ function startGameButton() {
     console.log("started")
     document.getElementById("startbtn").style.visibility = "hidden";
     document.getElementById("panel-container").style.visibility = "visible";
-
-
     timer = 60 * 1.25
-    var display = document.querySelector('#countdown');
-    startTimer(display);
+    startTimer(timerText);
 
 }
 var startButton = document.getElementById("startbtn")
 startButton.addEventListener("click", startGameButton)
 
-//----------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------- 
 //Variables and questions and answer array 
 //----------------------------------------------------------------------------
 
 
-const question = document.getElementById("question");
-const choices = Array.from(document.getElementsByClassName("choice-text"));
-const scoreText = document.getElementById("score");
+var question = document.getElementById("question");
+var choices = Array.from(document.getElementsByClassName("choice-text"));
+var scoreText = document.getElementById("score");
+var timerText = document.querySelector('#countdown');
 
-let currentQuestion = {};
-let acceptingAnswers = true;
-let score = 0;
-let questionCounter = 0;
-let availableQuestions = [];
 
-let questions = [
+var currentQuestion = {};
+var acceptingAnswers = true;
+var score = 0;
+var questionCounter = 0;
+var availableQuestions = [];
+
+var questions = [
     {
         question: "Commonly used data types do NOT include:",
         choice1: "Strings",
@@ -108,8 +115,8 @@ let questions = [
 // Game mechanics
 //----------------------------------------------------------------------------
 
-const CORRECT_BONUS = 1
-const MAX_QUESTIONS = 5
+var CORRECT_BONUS = 1
+var MAX_QUESTIONS = 5
 
 function startGame() {
     questionCounter = 0
@@ -122,16 +129,19 @@ function startGame() {
 
 function getNewQuestion() {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        //go to end page
+        localStorage.setItem("mostRecentScore", score)
         return window.location.assign("./assets/end.html");
     }
+    else if (timer == 1) {
+        return window.location.assign("./assets/end.html"); //NOT WORKING RETURNS NAN
+    }
     questionCounter++;
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    var questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
     choices.forEach(function (choice) {
-        const number = choice.dataset["number"];
+        var number = choice.dataset["number"];
         choice.innerText = currentQuestion["choice" + number];
     });
 
@@ -147,17 +157,15 @@ choices.forEach(function (choice) {
         if (!acceptingAnswers)
             return;
         acceptingAnswers = false;
-        const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset["number"];
+        var selectedChoice = e.target;
+        var selectedAnswer = selectedChoice.dataset["number"];
 
         if (selectedAnswer == currentQuestion.answer === true) {
             incrementScore();
         }
-        // else if (selectedAnswer != currentQuestion.answer != true) {
-        //     HERE IS WHERE I NEED TO LINK TO TAKING TIME OFF TIMER
-
-        // }
-
+        else if (selectedAnswer == currentQuestion.answer === false) {
+            decrementTime();
+        }
         console.log(selectedAnswer == currentQuestion.answer);
         getNewQuestion();
     });
@@ -166,7 +174,9 @@ choices.forEach(function (choice) {
 function incrementScore() {
     score += 1;
     scoreText.innerText = score;
-
 }
 
+
 startGame();
+
+
