@@ -9,8 +9,7 @@ var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 var MAX_HIGH_SCORES = 5
 
 
-console.log(highScores)
-finalScore.innerText = mostRecentScore
+finalScore.innerText = "Your Score: " + mostRecentScore
 
 
 username.addEventListener("keyup", function () {

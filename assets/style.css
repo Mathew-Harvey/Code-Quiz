@@ -33,20 +33,28 @@ h1 {
 #startbtn {
 
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	flex: 1;
-	padding: 20px;
-    margin: 10px 5px;
-    list-style-type: none;
-    border-radius: 8%;
     text-align: center;
     justify-content: center;
     position: absolute;
     top: 30%;
     left: 50%;
-    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    width: 20rem;
+    text-align: center;
+    border: 0.1rem solid black;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color:black;
+    background-color: white;
 }
+
+#startbtn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 grey;
+    transition: transform 150ms;
+  }
     
 
 #countdown { 
@@ -150,28 +158,24 @@ h1 {
     margin: 20px 0;
   }
   
-  .btn {
-    --hue: var(--hue-neutral);
-    border: 1px solid hsl(var(--hue), 100%, 30%);
-    background-color: hsl(var(--hue), 100%, 50%);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color:grey;
-    outline: solid;
+  #btn {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    width: 20rem;
+    text-align: center;
+    border: 0.1rem solid black;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color:black;
+    background-color: white;
   }
   
-  .btn:hover {
-    border-color: black;
+  #btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 grey;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
   }
-  
-
-
-
-
-
-
-
-
 
 @media screen and (max-width: 480px) {
 
@@ -193,7 +197,7 @@ input {
     padding: 1.5rem;
     font-size: 1.8rem;
     border: none;
-    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    box-shadow: 0 0.1rem 1.4rem 0 grey
 }
 
 .btnEnd {
@@ -201,16 +205,16 @@ input {
         padding: 1rem 0;
         width: 20rem;
         text-align: center;
-        border: 0.1rem solid #56a5eb;
+        border: 0.1rem solid black;
         margin-bottom: 1rem;
         text-decoration: none;
-        color: #56a5eb;
+        color:black;
         background-color: white;
       }
 
 .btnEnd:hover {
         cursor: pointer;
-        box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+        box-shadow: 0 0.4rem 1.4rem 0 grey;
         transform: translateY(-0.1rem);
         transition: transform 150ms;
       }
@@ -219,7 +223,7 @@ input {
 
 .container {
 	background-color: #fff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	
 	border-radius: 4px;
 	padding: 90px;
     text-align: center;

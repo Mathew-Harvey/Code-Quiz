@@ -16,40 +16,34 @@ function startTimer(display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
-  console.log(seconds)  
+        console.log(seconds)
         if (--timer < 0) {
-            timer = 0;
+            return window.location.assign("./assets/end.html");
         }
     }, 1000);
-
 }
 
 function decrementTime(seconds) {
-    seconds = parseInt(seconds - 10); //NOT WORKING 
-   
-    
+    seconds = seconds - 10; //NOT WORKING 
 }
-
 //----------------------------------------------------------------------------
 // Start quiz function
 //----------------------------------------------------------------------------
 
-var startBtn = document.querySelector("#startbtn")
-var questionBox = document.querySelector("#panel-container")
+var startBtn = document.querySelector("#startbtn");
+var questionBox = document.querySelector("#panel-container");
 document.getElementById("panel-container").style.visibility = "hidden";
+var startButton = document.getElementById("startbtn");
+startButton.addEventListener("click", startGameButton);
+
 
 function startGameButton() {
-    console.log("started")
+    console.log("started");
     document.getElementById("startbtn").style.visibility = "hidden";
     document.getElementById("panel-container").style.visibility = "visible";
-    timer = 60 * 1.25
+    timer = 60 * 1.25;
     startTimer(timerText);
-
 }
-var startButton = document.getElementById("startbtn")
-startButton.addEventListener("click", startGameButton)
-
-
 //---------------------------------------------------------------------------- 
 //Variables and questions and answer array 
 //----------------------------------------------------------------------------
@@ -115,26 +109,24 @@ var questions = [
 // Game mechanics
 //----------------------------------------------------------------------------
 
-var CORRECT_BONUS = 1
-var MAX_QUESTIONS = 5
+var CORRECT_BONUS = 1;
+var MAX_QUESTIONS = 5;
 
 function startGame() {
-    questionCounter = 0
-    score = 0
+    questionCounter = 0;
+    score = 0;
     availableQuestions = [...questions];
     console.log(availableQuestions);
     getNewQuestion();
 };
 
-
 function getNewQuestion() {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        localStorage.setItem("mostRecentScore", score)
+        localStorage.setItem("mostRecentScore", score);
         return window.location.assign("./assets/end.html");
     }
-    else if (timer == 1) {
-        return window.location.assign("./assets/end.html"); //NOT WORKING RETURNS NAN
-    }
+    
+    
     questionCounter++;
     var questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -149,8 +141,6 @@ function getNewQuestion() {
 
     acceptingAnswers = true;
 };
-
-
 
 choices.forEach(function (choice) {
     choice.addEventListener("click", e => {
@@ -173,9 +163,8 @@ choices.forEach(function (choice) {
 
 function incrementScore() {
     score += 1;
-    scoreText.innerText = score;
+    scoreText.innerText = + score;
 }
-
 
 startGame();
 
