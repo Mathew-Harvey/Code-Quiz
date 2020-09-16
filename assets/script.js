@@ -1,8 +1,6 @@
 //----------------------------------------------------------------------------
 // Countdown timer
 //----------------------------------------------------------------------------
-// var timerMaster = startTimer(duration, display)
-// console.log(timerMaster)
 
 var timer = 0;
 var minutes
@@ -13,12 +11,9 @@ function startTimer(display, minutes, seconds) {
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
-
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
-
         display.textContent = minutes + ":" + seconds;
-
         if (--timer < 0) {
             return window.location.assign("./assets/end.html");
         }
@@ -26,10 +21,9 @@ function startTimer(display, minutes, seconds) {
 }
 
 function decrementTime() {
-    timer = timer - 10; //NOT WORKING 
+    timer = timer - 10; 
 }
 
-console.log(seconds)
 //----------------------------------------------------------------------------
 // Start quiz function
 //----------------------------------------------------------------------------
@@ -40,9 +34,7 @@ document.getElementById("panel-container").style.visibility = "hidden";
 var startButton = document.getElementById("startbtn");
 startButton.addEventListener("click", startGameButton);
 
-
 function startGameButton() {
-    console.log("started");
     document.getElementById("startbtn").style.visibility = "hidden";
     document.getElementById("panel-container").style.visibility = "visible";
     timer = 60 * 1.25;
@@ -52,19 +44,15 @@ function startGameButton() {
 //Variables and questions and answer array 
 //----------------------------------------------------------------------------
 
-
 var question = document.getElementById("question");
 var choices = Array.from(document.getElementsByClassName("choice-text"));
 var scoreText = document.getElementById("score");
 var timerText = document.querySelector('#countdown');
-
-
 var currentQuestion = {};
 var acceptingAnswers = true;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
-
 var questions = [
     {
         question: "Commonly used data types do NOT include:",
@@ -120,7 +108,6 @@ function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-    console.log(availableQuestions);
     getNewQuestion();
 };
 
@@ -129,7 +116,6 @@ function getNewQuestion() {
         localStorage.setItem("mostRecentScore", score);
         return window.location.assign("./assets/end.html");
     }
-
 
     questionCounter++;
     var questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -142,7 +128,6 @@ function getNewQuestion() {
     });
 
     availableQuestions.splice(questionIndex, 1);
-
     acceptingAnswers = true;
 };
 
@@ -153,7 +138,6 @@ choices.forEach(function (choice) {
         acceptingAnswers = false;
         var selectedChoice = e.target;
         var selectedAnswer = selectedChoice.dataset["number"];
-
         if (selectedAnswer == currentQuestion.answer === true) {
             incrementScore();
         }
