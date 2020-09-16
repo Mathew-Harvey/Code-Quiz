@@ -5,27 +5,31 @@
 // console.log(timerMaster)
 
 var timer = 0;
+var minutes
+var seconds
 
-function startTimer(display) {
+function startTimer(display, minutes, seconds) {
 
     setInterval(function () {
-        var minutes = parseInt(timer / 60, 10);
-        var seconds = parseInt(timer % 60, 10);
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
-        console.log(seconds)
+
         if (--timer < 0) {
             return window.location.assign("./assets/end.html");
         }
     }, 1000);
 }
 
-function decrementTime(seconds) {
-    seconds = seconds - 10; //NOT WORKING 
+function decrementTime() {
+    timer = timer - 10; //NOT WORKING 
 }
+
+console.log(seconds)
 //----------------------------------------------------------------------------
 // Start quiz function
 //----------------------------------------------------------------------------
@@ -125,8 +129,8 @@ function getNewQuestion() {
         localStorage.setItem("mostRecentScore", score);
         return window.location.assign("./assets/end.html");
     }
-    
-    
+
+
     questionCounter++;
     var questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -155,8 +159,7 @@ choices.forEach(function (choice) {
         }
         else if (selectedAnswer == currentQuestion.answer === false) {
             decrementTime();
-        }
-        console.log(selectedAnswer == currentQuestion.answer);
+        }        
         getNewQuestion();
     });
 });
