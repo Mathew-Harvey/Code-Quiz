@@ -79,7 +79,6 @@ h1 {
    
   }
     
-
 #countdown { 
     background-color: clear;
     display: inline-flex;
@@ -93,8 +92,6 @@ h1 {
 
 }
 
-
-
 #score {
     background-color:clear;
     display: inline-flex;
@@ -104,9 +101,7 @@ h1 {
     margin: 0;
     height: 70px;
     width: 25px;
-    float: left;
-    
-
+    float: left;    
 }
 
 #scorelable {
@@ -119,7 +114,6 @@ h1 {
     height: 70px;
     width: 200px;
     float: left;
-
 }
 
 #panel-container {
@@ -149,8 +143,7 @@ h1 {
     justify-content: center;
     text-align: center;
     justify-content: center;
-    padding-right: 37px;
-  
+    padding-right: 37px;  
 }
 
 .answer-container {
@@ -160,8 +153,7 @@ h1 {
 	padding: 20px;
     margin: 10px 5px;
     list-style-type: none;
-    border-radius: 8%;
-    
+    border-radius: 8%;    
 }
 
 .answer-container.active, .answer-container:hover {
@@ -170,7 +162,6 @@ h1 {
 }
 
 #question {
-
     text-emphasis: wrap;;
 }
 
@@ -239,8 +230,6 @@ input {
         transition: transform 150ms;
       }
 
-
-
 .container {
 	background-color: clear;
 	
@@ -283,12 +272,23 @@ input {
   .high-score:hover {
       transform: scale(1.025);
   }
-
-
+    
+    #panel-container {
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        padding: 30px;
+        text-align: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    
   @media screen and (max-width: 480px) {
-    
-    
-    
+         
     #score {
         background-color:clear;
         display: inline-flex;
@@ -299,11 +299,8 @@ input {
         height: 70px;
         width: 25px;
         float: left;
-        padding-top: 10rem;
-      
-        
-    
-    }
+        padding-top: 10rem;     
+     }
     
     #scorelable {
         background-color: clear;
@@ -315,9 +312,7 @@ input {
         height: 70px;
         width: 200px;
         float: left;
-        padding-top: 10rem;
-    
-    
+        padding-top: 10rem;       
     }
 
     #countdown { 
@@ -330,12 +325,19 @@ input {
         height: 70px;
         width: 200px;
         float: left;
-        padding-top: 3rem;
-    
-    
+        padding-top: 3rem;   
     }
     
+    #finalScore{
+
+        top: -20%;
+        font-size: 120%;
+    }
     
+    #highScoresListText {
+        font-size: 20%;
+    }
+
     #startbtn {
     
         cursor: pointer;
@@ -343,9 +345,9 @@ input {
         margin-top: 10rem;
 
     }
-        h1 {
-            text-align: center;
-            max-width: 700px;
+    h1 {
+        text-align: center;
+        max-width: 700px;
             position: absolute;
             left: 50%;
             top: -5%;
@@ -360,15 +362,18 @@ input {
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             border-radius: 4px;
-            padding: 30px;
+            padding: 10px;
             text-align: center;
             justify-content: center;
-            position: absolute;
-            top: 60%;
+  
+            top: 90%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             display: flex;
+            resize: both;
+            overflow: auto;
+    
         
         }
         .container {
@@ -387,279 +392,70 @@ input {
   
           
     
-    
-    
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    button {
-        background-color: #ccc;
-        padding-left: 2rem;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        padding-right: 2rem;
-        border-color: #ccc;
-    }
-    
-    body {
-        /* Typography */
-        font-size: 18px;
-        line-height: 27px;
-        /* Visual */
-        background-image: url(./pngbarn.png);
-        background-repeat: no-repeat;
-        background-size: 70%;
-        background-position: 100px 50px 1000px 0;
-        background-color: #ccc;
-       
-        }
-    
-    h1 {
-        text-align: center;
-        max-width: 700px;
-        position: absolute;
-        left: 50%;
-        top: -5%;
-        transform: translate(-50%, -50%);
-     }
-    
-     h2 {
-        text-align: center;
-        max-width: 700px;
-        position: absolute;
-        left: 50%;
-        top: 5%;
-        transform: translate(-50%, -50%);
-     }
-    
-     h3 {
-        left: 10%;
-        max-width: 700px;
-        offset-position: left;
-        top: 10%;
-        transform: translate(-90%, -450%);
-     }
-    
-    #startbtn {
-    
-        cursor: pointer;
-        text-align: center;
-        justify-content: center;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.8rem;
-        padding: 1rem 0;
-        width: 20rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        text-decoration: none;
-        color:black;
-        background-color:clear;
-       
-    }
-    
-    #startbtn:hover {
-        cursor: pointer;
-        box-shadow: 0 0.4rem 1.4rem 0 grey;
-        transition: 150ms;
-       
-      }
-        
-    
-      .btn-grid {
-        display: flex;
-        grid-template-columns: repeat(auto, auto);
-        gap: 10px;
-        margin: 20px 0;
-      }
-
-
-
-
-
-  
-    
-    }
-    
-    
-    
-
-    
-
-    #panel-container {
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        border-radius: 4px;
-        padding: 30px;
-        text-align: center;
-        justify-content: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
-    
-    .panel-container strong {
-        line-height: 20px;
-    }
-    
-    .panel-container p {
-        margin: 25px 0;
-        line-height: 20px;
-    }
-    
-    #list {
-        justify-content: center;
-        text-align: center;
-        justify-content: center;
-        padding-right: 37px;
-      
-    }
-    
-    .answer-container {
-        cursor: pointer;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        flex: 1;
-        padding: 20px;
-        margin: 10px 5px;
-        list-style-type: none;
-        border-radius: 8%;
-        
-    }
-    
-    .answer-container.active, .answer-container:hover {
-        border-radius: 4px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    #question {
-    
-        text-emphasis: wrap;;
-    }
-    
-    
-    .btn-grid {
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        gap: 10px;
-        margin: 20px 0;
-      }
-      
-      #btn {
-        font-size: 1.8rem;
-        padding: 1rem 0;
-        width: 20rem;
-        text-align: center;
-        border: 0.1rem solid black;
-        margin-bottom: 1rem;
-        text-decoration: none;
-        color:black;
-        background-color: white;
-      }
-      
-      #btn:hover {
-        cursor: pointer;
-        box-shadow: 0 0.4rem 1.4rem 0 grey;
-        transform: translateY(-0.1rem);
-        transition: transform 150ms;
-      }
-    
-    
-    /* Forms */
-    
-    form {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    input {
-        margin-bottom: 1rem;
-        width: 20rem;
-        padding: 1.5rem;
-        font-size: 1.8rem;
-        border: none;
-        box-shadow: 0 0.1rem 1.4rem 0 grey
-    }
-    
-    .btnEnd {
-            font-size: 1.8rem;
-            padding: 1rem 0;
-            width: 20rem;
-            text-align: center;
-            border: 0.1rem solid black;
-            margin-bottom: 1rem;
-            text-decoration: none;
-            color:black;
-            background-color: white;
-          }
-    
-    .btnEnd:hover {
+          #panel-container {
             cursor: pointer;
-            box-shadow: 0 0.4rem 1.4rem 0 grey;
-            transform: translateY(-0.1rem);
-            transition: transform 150ms;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            padding: 5px;
+            margin: 50px 5px;
+            list-style-type: none;
+            border-radius: 5%;
+            flex-direction: column;
+            resize: both;
+            overflow: auto;
+            flex-shrink: initial;
+            display:flex;
+            flex-direction: column;
+            top: 60%;
+            left: 50%;
+          
+
+          }
+          
+        #btn {
+
+            font-size: 90%;
+
+            }
+       
+
+       
+          
+
+          .btn-grid {
+       
+            
+            gap: 2px;
+            margin: 5px 0;
+            resize: both;
+            overflow: auto;
+            flex-shrink: initial;
+     
+  
+
+
+
           }
     
+        #answer-buttons {
+            gap: 2px;
+            margin: 2px 0;
+            resize: both;
+            overflow: auto;
+            flex-shrink: initial;
+            display:flex;
+            flex-direction: column;
+         }
     
     
-    .container {
-        background-color: clear;
-        
-        border-radius: 4px;
-        padding: 90px;
-        text-align: center;
-        justify-content: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-      }
     
-      .flex-column {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .flex-center {
-        justify-content: center;
-        align-items: center;
-      }
     
-      #highScoreList {
-          list-style: none;
-          padding-left: 0;
-          margin-bottom: 4rem;
-          font-size: 1.4rem;
-     
-      }
-    
-      .high-scores {
-         
-          margin-bottom: 0.5rem;
-          
-          margin-top: 1rem;
-      }
-    
-      .high-score:hover {
-          transform: scale(1.025);
-      }
-    
-
-}
+        button {
+            background-color: #ccc;
+            padding-left: 2rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-right: 2rem;
+            border-color: #ccc;
+        }
+    }
