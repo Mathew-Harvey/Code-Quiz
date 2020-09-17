@@ -4,4 +4,4 @@ Project Location: https://github.com/Mathew-Harvey/Code-Quiz
 
 Web application deployed here: https://mathew-harvey.github.io/Code-Quiz/index.html
 
-ScreenShot: https://github.com/Mathew-Harvey/Password-Generator---Java-Script/blob/master/assets/screenshot.JPG
+ScreenShot: https://github.com/Mathew-Harvey/Code-Quiz/blob/master/assets/screenshot.png
