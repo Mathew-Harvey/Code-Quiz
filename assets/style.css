@@ -243,6 +243,10 @@ input {
     transform: translate(-50%, -50%);
   }
 
+  #highScoreListText {
+    height: 20% ;
+  }
+
   .flex-column {
     display: flex;
     flex-direction: column;
